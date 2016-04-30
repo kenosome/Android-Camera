@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">CamaraIntent</string>
+
+    <string name="hello_world">Presione el botón para abrir la cámara</string>
+    <string name="action_settings">Settings</string>
+</resources>
