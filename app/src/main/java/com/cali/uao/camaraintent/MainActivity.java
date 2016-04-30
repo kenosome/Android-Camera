@@ -2,6 +2,8 @@ package com.cali.uao.camaraintent;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -11,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -20,6 +23,7 @@ import java.sql.BatchUpdateException;
 public class MainActivity extends Activity {
 
     Button btnCamara;
+    ImageView imgview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         btnCamara= (Button) findViewById(R.id.btnCamara);
+        imgview=(ImageView) findViewById(R.id.imgvFoto);
 
         btnCamara.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +62,10 @@ public class MainActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode==10){
-            Toast.makeText(this,"OK",Toast.LENGTH_SHORT ).show();
+            //Toast.makeText(this,"OK",Toast.LENGTH_SHORT ).show();
+            Bitmap bmFoto= BitmapFactory.decodeFile(Environment.getExternalStorageDirectory()+"/CamaraIntent/foto1.jpg");
+            imgview.setImageBitmap(bmFoto);
+
         }
     }
 }
